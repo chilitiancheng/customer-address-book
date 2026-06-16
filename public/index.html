@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>客户地址簿</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>客户地址簿</h1>
+          <p id="summary">正在读取数据...</p>
+        </div>
+        <div class="top-actions">
+          <button class="secondary" id="importBtn">导入 Excel</button>
+          <button class="secondary" id="exportBtn">导出 Excel</button>
+          <button class="secondary" id="backupBtn">备份</button>
+          <button class="secondary" id="restoreBtn">恢复</button>
+          <button class="primary" id="newBtn">新增客户</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="list-pane">
+          <div class="search-wrap">
+            <input id="searchInput" type="search" placeholder="搜索客户名称、地址、电话、备注" autocomplete="off" />
+          </div>
+          <div class="list-head">
+            <span>客户列表</span>
+            <span id="countBadge">0</span>
+          </div>
+          <div class="customer-list" id="customerList"></div>
+        </section>
+
+        <section class="detail-pane">
+          <div id="emptyState" class="empty-state">
+            <h2>选择一个客户查看详情</h2>
+            <p>也可以点击“新增客户”开始录入第一条客户信息。</p>
+          </div>
+
+          <article id="detailView" class="detail-view hidden">
+            <div class="detail-title">
+              <div>
+                <span class="eyebrow">客户详情</span>
+                <h2 id="detailName"></h2>
+              </div>
+              <div class="inline-actions">
+                <button class="secondary" id="editBtn">编辑</button>
+                <button class="danger" id="deleteBtn">删除</button>
+              </div>
+            </div>
+            <dl class="info-grid">
+              <div>
+                <dt>地址/联系方式</dt>
+                <dd id="detailContact"></dd>
+              </div>
+              <div>
+                <dt>备注</dt>
+                <dd id="detailNote"></dd>
+              </div>
+              <div>
+                <dt>更新时间</dt>
+                <dd id="detailUpdated"></dd>
+              </div>
+            </dl>
+          </article>
+
+          <form id="customerForm" class="customer-form hidden">
+            <div class="detail-title">
+              <div>
+                <span class="eyebrow" id="formEyebrow">新增客户</span>
+                <h2 id="formTitle">客户信息</h2>
+              </div>
+            </div>
+
+            <label>
+              <span>客户名称</span>
+              <input id="nameInput" name="name" required placeholder="客户名字、门店名或公司名" />
+            </label>
+            <label>
+              <span>地址/联系方式</span>
+              <textarea id="contactInput" name="contact" rows="5" placeholder="详细地址、电话、微信等信息"></textarea>
+            </label>
+            <label>
+              <span>备注</span>
+              <textarea id="noteInput" name="note" rows="6" placeholder="特殊情况、合作内容、注意事项等"></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="primary" type="submit">保存</button>
+              <button class="secondary" type="button" id="cancelBtn">取消</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <input class="file-input" id="excelInput" type="file" accept=".xlsx,.xls,.csv" />
+    <input class="file-input" id="restoreInput" type="file" accept=".json" />
+    <div id="toast" class="toast hidden"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>

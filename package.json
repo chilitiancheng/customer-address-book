@@ -1,0 +1,15 @@
+{
+  "name": "customer-address-book",
+  "version": "1.0.0",
+  "description": "Minimal local customer address book.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "address-book",
+    "customers",
+    "local"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,4 @@
+data/*.json
+data/backups/*.json
+node_modules/
+.env
