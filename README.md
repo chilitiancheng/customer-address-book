@@ -34,6 +34,23 @@ http://服务器电脑IP:3000
 
 如果访问不了，请检查 Windows 防火墙是否允许 3000 端口入站。
 
+## 公共访问链接
+
+已部署到 Cloudflare Workers：
+
+```text
+https://customer-address-book.customer-address-book-ctc.workers.dev
+```
+
+访问时浏览器会弹出用户名和密码：
+
+```text
+用户名：admin
+密码：KAB-2026-7391
+```
+
+公共版本的数据保存在 Cloudflare KV 中，多台电脑打开同一个链接会看到同一份客户数据。
+
 ## 数据保存位置
 
 客户数据保存在：
